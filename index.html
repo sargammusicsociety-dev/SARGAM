@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARGAM — Feel The Sound</title>
+<meta name="description" content="SARGAM — music, performance, collaboration and creative expression at Satyawati College, University of Delhi.">
+<style>
+:root{
+  --bg:#070707; --card:#111; --text:#f5f5f5; --muted:#a4a4a4;
+  --line:#242424; --accent:#d9ff3f; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{width:min(92%,var(--max));margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(7,7,7,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;letter-spacing:.18em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;font-size:14px;color:#ccc}
+.nav-links a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:110px 0 70px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.16;pointer-events:none}
+.hero:before{width:430px;height:430px;background:#d9ff3f;right:-120px;top:100px}
+.hero:after{width:330px;height:330px;background:#7a5cff;left:-120px;bottom:50px}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.22em;font-weight:800;text-transform:uppercase;margin-bottom:18px}
+h1{font-size:clamp(58px,10vw,132px);line-height:.82;letter-spacing:-.075em;font-weight:950}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #eee}
+.hero-copy{margin-top:28px;max-width:590px;color:#bdbdbd;font-size:17px}
+.buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:13px 19px;border:1px solid var(--line);border-radius:999px;font-weight:750;font-size:14px;transition:.2s}
+.btn.primary{background:var(--accent);color:#080808;border-color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+.visual{min-height:480px;border:1px solid #252525;border-radius:28px;background:linear-gradient(145deg,#151515,#0b0b0b);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual .circle{width:270px;height:270px;border:1px solid #3b3b3b;border-radius:50%;display:grid;place-items:center;position:relative}
+.visual .circle:before,.visual .circle:after{content:"";position:absolute;border-radius:50%;border:1px solid #333}
+.visual .circle:before{inset:30px}.visual .circle:after{inset:65px}
+.note{font-size:95px;font-weight:900;color:var(--accent);z-index:2}
+.floating{position:absolute;padding:10px 13px;background:#151515;border:1px solid #292929;border-radius:12px;font-size:12px;color:#ccc}
+.f1{top:18%;left:8%}.f2{right:7%;top:31%}.f3{bottom:18%;left:15%}
+section{padding:105px 0;border-top:1px solid #171717}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+.kicker{font-size:12px;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.05em;line-height:1;margin-top:9px}
+.section-head p{max-width:420px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{padding:27px;border:1px solid var(--line);border-radius:20px;background:#0d0d0d;min-height:190px}
+.card .num{color:#555;font-size:12px;font-weight:800}
+.card h3{font-size:22px;margin:25px 0 9px}
+.card p{color:#9b9b9b;font-size:14px}
+.events{display:grid;gap:12px}
+.event{display:grid;grid-template-columns:90px 1fr auto;gap:22px;align-items:center;padding:22px;border:1px solid var(--line);border-radius:17px}
+.event-date{font-weight:900;color:var(--accent)}
+.event h3{font-size:17px}.event p{color:#888;font-size:13px;margin-top:4px}
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.member{padding:20px;border:1px solid var(--line);border-radius:16px;background:#0d0d0d}
+.avatar{height:120px;border-radius:12px;background:linear-gradient(135deg,#202020,#0b0b0b);display:grid;place-items:center;font-size:34px;font-weight:900;color:#777;margin-bottom:14px}
+.member strong{display:block}.member small{color:#888}
+.join{background:var(--accent);color:#080808;border-radius:28px;padding:55px}
+.join .kicker{color:#080808}
+.join h2{max-width:760px}.join p{max-width:620px;margin-top:15px;color:#2c2c2c}
+.join .btn{background:#080808;color:white;border-color:#080808;margin-top:25px}
+footer{padding:35px 0;color:#777;font-size:13px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+ .nav-links{display:none}.menu{display:block}
+ .hero-grid{grid-template-columns:1fr}.visual{min-height:350px}
+ .cards{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,1fr)}
+ .section-head{display:block}.section-head p{margin-top:15px}
+}
+@media(max-width:520px){
+ .hero{padding-top:100px}.visual{min-height:300px}.visual .circle{width:210px;height:210px}
+ .event{grid-template-columns:65px 1fr}.event .btn{display:none}
+ .team{grid-template-columns:1fr 1fr}.join{padding:32px 24px}
+ footer{display:block}.footer-right{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">SAR<span>G</span>AM</a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#events">Events</a><a href="#collaboration">Collaboration</a><a href="#team">Team</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('mobile')">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Music • People • Expression</div>
+      <h1>MAKE<br><span>SOME</span><br>MUSIC.</h1>
+      <p class="hero-copy">SARGAM is where voices meet instruments, beginners meet mentors, and ideas turn into performances. A student-built music platform made for people who simply love music.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#collaboration">See collaboration</a>
+        <button class="btn" onclick="openContact()">Talk to us ↗</button>
+      </div>
+    </div>
+    <div class="visual" aria-label="SARGAM visual">
+      <div class="circle"><div class="note">♪</div></div>
+      <div class="floating f1">LIVE PERFORMANCE</div>
+      <div class="floating f2">JAM • CREATE • REPEAT</div>
+      <div class="floating f3">DELHI / 2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">What we do</div><h2>A place for<br>every sound.</h2></div>
+      <p>No matter whether you sing, rap, play an instrument, write, edit or simply love music — there is room to create here.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="num">01 / PERFORMANCE</div><h3>Take the stage.</h3><p>Open up opportunities to perform at college programs, collaborations and live events.</p></article>
+      <article class="card"><div class="num">02 / JAMMING</div><h3>Play together.</h3><p>Regular workshops and jamming sessions to experiment, learn and build chemistry.</p></article>
+      <article class="card"><div class="num">03 / CREATIVE</div><h3>Create beyond music.</h3><p>Build a strong creative team across video, photography, editing, design and social media.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">On the calendar</div><h2>What's happening.</h2></div>
+      <p>Keep this section updated with your latest workshops, jams, performances and collaborations.</p>
+    </div>
+    <div class="events">
+      <div class="event"><div class="event-date">TUE</div><div><h3>Official Workshop</h3><p>Bring your own instrument • Satyawati College</p></div><a class="btn" href="#join">Details</a></div>
+      <div class="event"><div class="event-date">FRI</div><div><h3>Jamming Session</h3><p>Come with your ideas. Leave with a sound.</p></div><a class="btn" href="#join">Details</a></div>
+      <div class="event"><div class="event-date">04 OCT</div><div><h3>Global Roti Day × Vishalakshi Foundation</h3><p>Collaboration with Vishalakshi Foundation • Global Roti Day 2026</p></div><a class="btn" href="#contact">Collaborate</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="collaboration"><div class="container"><div class="section-head"><div><div class="kicker">Collaboration</div><h2>Make it bigger.</h2></div><p>SARGAM works with people and organisations to turn music into meaningful experiences.</p></div><div class="card" style="padding:36px;background:linear-gradient(135deg,#151515,#0b0b0b)"><div class="num">UPCOMING • 04 OCTOBER 2026</div><h3 style="font-size:38px">Global Roti Day × Vishalakshi Foundation</h3><p style="max-width:760px;margin-top:12px">SARGAM is collaborating with Vishalakshi Foundation for Global Roti Day on 4 October 2026 — bringing music, participation and a meaningful social initiative together.</p><a class="btn primary" style="margin-top:22px" href="#contact">Collaborate with us ↗</a></div></div></section><section id="team"><div class="container"><div class="section-head"><div><div class="kicker">Leadership</div><h2>Two people.<br>One vision.</h2></div><p>Built on cooperation, trust and the belief that a music platform grows when its people grow together.</p></div><div class="cards"><article class="card"><div class="num">FOUNDER / PRESIDENT</div><h3>Mohit Badoria</h3><p>Mohit is the Founder & President of SARGAM. From the beginning of college, he had been thinking about creating a dedicated music platform where beginners could learn without hesitation, intermediate artists could sharpen their skills, and experienced musicians could improve further by teaching and collaborating. He wanted to create the platform he felt was missing — a place where people can learn, teach, perform and grow together. SARGAM was formed on <strong style="color:#d9ff3f">16 August 2026</strong>.</p></article><article class="card"><div class="num">VICE-PRESIDENT</div><h3>Manish Chandra Arya</h3><p>Manish works alongside Mohit as Vice-President and is an important part of turning the vision into action. Both are cooperative and supportive with each other, sharing ideas, solving problems together and keeping the focus on the growth of SARGAM and its artists. Manish brings the same spirit of coordination, support and collaboration that SARGAM was built around.</p></article></div></div></section>
+
+<section id="join">
+  <div class="container">
+    <div class="join">
+      <div class="kicker">Your turn.</div>
+      <h2>Got a voice? An instrument? An idea?</h2>
+      <p>Join the next chapter. Whether you're a vocalist, rapper, instrumentalist, creator or someone who wants to work behind the scenes — come make something.</p>
+      <a class="btn" href="mailto:sargammusicsociety@gmail.com">DM / Email SARGAM ↗</a>
+    </div>
+  </div>
+</section>
+<section id="reviews"><div class="container"><div class="section-head"><div><div class="kicker">Your voice</div><h2>Leave a review.</h2></div><p>Tell us what you experienced at SARGAM — a workshop, jam, performance or collaboration.</p></div><div class="card" style="padding:30px"><form onsubmit="submitReview(event)" style="display:grid;gap:10px"><input id="rname" placeholder="Your name" required style="background:#080808;color:white;border:1px solid #292929;border-radius:12px;padding:14px"><input id="rrole" placeholder="Artist / Member / Audience" style="background:#080808;color:white;border:1px solid #292929;border-radius:12px;padding:14px"><textarea id="review" placeholder="Write your review..." required style="background:#080808;color:white;border:1px solid #292929;border-radius:12px;padding:14px;min-height:120px"></textarea><button class="btn primary" type="submit">Add my review ↗</button></form></div><div id="reviewList" style="margin-top:14px"></div></div></section><section id="contact"><div class="container"><div class="section-head"><div><div class="kicker">Contact</div><h2>Let's make<br>something.</h2></div><p>For collaborations, performances, event invitations, artist enquiries or anything SARGAM — reach out.</p></div><div class="cards"><article class="card"><h3>Instagram</h3><p>Follow performances, updates and the journey.</p><a class="btn" style="margin-top:20px" href="https://www.instagram.com/sargam.sc/" target="_blank">@sargam.sc ↗</a></article><article class="card"><h3>Direct contact</h3><p>Choose WhatsApp, email or call — whatever works for you.</p><button class="btn primary" style="margin-top:20px" onclick="openContact()">Contact SARGAM ↗</button></article><article class="card"><h3>Free for shows & performances</h3><p>Invite SARGAM to perform at your college, event or cultural program.</p><button class="btn primary" style="margin-top:20px" onclick="openContact()">Invite us ↗</button></article></div></div></section></main>
+
+<footer class="container">
+  <div>© 2026 SARGAM • Satyawati College, University of Delhi</div>
+  <div class="footer-right">Instagram @sargam.sc • sargammusicsociety@gmail.com</div>
+</footer>
+
+<script>
+const links=document.querySelectorAll('.nav-links a');
+links.forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('mobile')));
+</script>
+<style>
+@media(max-width:850px){.nav-links.mobile{display:flex;position:absolute;top:72px;left:0;right:0;background:#080808;padding:20px 4%;flex-direction:column;gap:18px;border-bottom:1px solid #222}}
+</style>
+<div class="modal" id="contactModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100;align-items:center;justify-content:center;padding:20px"><div style="width:min(430px,100%);background:#101010;border:1px solid #333;border-radius:23px;padding:28px;position:relative"><button onclick="closeContact()" style="position:absolute;right:15px;top:8px;background:none;border:0;color:#aaa;font-size:26px">×</button><div class="kicker">Hey 👋🏻</div><h2 style="font-size:48px">Talk to us.</h2><p style="color:#999;margin:10px 0 20px">Choose how you'd like to contact SARGAM.</p><div style="display:grid;gap:10px"><a class="btn" href="https://wa.me/919958441869?text=Hey..%20%F0%9F%91%8B%F0%9F%8F%BB" target="_blank">WhatsApp • 9958441869 ↗</a><a class="btn" href="mailto:sargammusicsociety@gmail.com">Email ↗</a><a class="btn" href="tel:+919958441869">Call ↗</a></div></div></div><script>function openContact(){document.getElementById('contactModal').style.display='flex'}function closeContact(){document.getElementById('contactModal').style.display='none'}function submitReview(e){e.preventDefault();const n=document.getElementById('rname').value,r=document.getElementById('rrole').value||'Guest',v=document.getElementById('review').value,b=document.createElement('div');b.className='card';b.style.marginTop='10px';b.innerHTML='<strong>'+safe(n)+'</strong> <span style="color:#777">• '+safe(r)+'</span><p>'+safe(v)+'</p>';document.getElementById('reviewList').prepend(b);e.target.reset()}function safe(x){return x.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}</script></body>
+</html>
