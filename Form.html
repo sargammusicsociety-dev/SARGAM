@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sargam | Registration</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 5px;
+    }
+
+    .tagline {
+      color: #aaa;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .form-box {
+      background: #101010;
+      border: 1px solid #292929;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    }
+
+    .form-title {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .form-description {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 15px;
+      background: #181818;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: white;
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: white;
+      background: #1d1d1d;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    option {
+      background: #181818;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: black;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      background: #ddd;
+    }
+
+    .required {
+      color: #ff5555;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 25px 15px;
+      }
+
+      .form-box {
+        padding: 25px 20px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">SARGAM</div>
+      <div class="tagline">Music Society • Satyawati College</div>
+    </div>
+
+    <div class="form-box">
+
+      <h1 class="form-title">Join Sargam 🎶</h1>
+
+      <p class="form-description">
+        Think you have something to bring to the stage?
+        Register with Sargam Music Society and become a part of
+        our musical community.
+      </p>
+
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+        <!-- NAME -->
+        <div class="field">
+          <label>
+            Full Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            required>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field">
+          <label>
+            Email Address <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required>
+        </div>
+
+        <!-- PHONE -->
+        <div class="field">
+          <label>
+            Phone Number <span class="required">*</span>
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Enter your phone number"
+            required>
+        </div>
+
+        <!-- COURSE -->
+        <div class="field">
+          <label>
+            Course / Year <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            name="course"
+            placeholder="Example: B.Com 2nd Year"
+            required>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="field">
+          <label>
+            What are you interested in? <span class="required">*</span>
+          </label>
+
+          <select name="category" required>
+            <option value="">Select an option</option>
+            <option>Vocal / Singing</option>
+            <option>Rapper</option>
+            <option>Guitar</option>
+            <option>Keyboard / Piano</option>
+            <option>Drums / Percussion</option>
+            <option>Other Instrument</option>
+            <option>Songwriting</option>
+            <option>Music Production</option>
+            <option>Photography / Videography</option>
+            <option>Video Editing</option>
+            <option>Canva / Graphic Design</option>
+            <option>Social Media</option>
+            <option>Event Management</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="field">
+          <label>
+            Your Experience
+          </label>
+
+          <textarea
+            name="experience"
+            placeholder="Tell us briefly about your musical / creative experience..."></textarea>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="field">
+          <label>
+            Instagram / Portfolio Link
+          </label>
+
+          <input
+            type="url"
+            name="instagram"
+            placeholder="https://instagram.com/yourusername">
+        </div>
+
+        <!-- WHY SARGAM -->
+        <div class="field">
+          <label>
+            Why do you want to join Sargam?
+          </label>
+
+          <textarea
+            name="reason"
+            placeholder="Tell us something about yourself..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Registration →
+        </button>
+
+      </form>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Sargam Music Society • Satyawati College
+    </div>
+
+  </div>
+
+</body>
+  </html>
