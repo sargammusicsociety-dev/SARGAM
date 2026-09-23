@@ -224,29 +224,87 @@
         </div>
 
         <!-- CATEGORY -->
-        <div class="field">
-          <label>
-            What are you interested in? <span class="required">*</span>
-          </label>
+      <div class="form-group">
+    <label>What are you interested in? <span>*</span></label>
 
-          <select name="category" required>
-            <option value="">Select an option</option>
-            <option>Vocal / Singing</option>
-            <option>Rapper</option>
-            <option>Guitar</option>
-            <option>Keyboard / Piano</option>
-            <option>Drums / Percussion</option>
-            <option>Other Instrument</option>
-            <option>Songwriting</option>
-            <option>Music Production</option>
-            <option>Photography / Videography</option>
-            <option>Video Editing</option>
-            <option>Canva / Graphic Design</option>
-            <option>Social Media</option>
-            <option>Event Management</option>
-            <option>Other</option>
-          </select>
-        </div>
+    <div class="interest-options">
+        <label>
+            <input type="checkbox" name="interests" value="Singing">
+            Singing
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Rapping">
+            Rapping
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Instrumental">
+            Instrumental
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Songwriting">
+            Songwriting
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Music Production">
+            Music Production
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Video Editing">
+            Video Editing
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Photography">
+            Photography
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Canva / Design">
+            Canva / Design
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Social Media">
+            Social Media
+        </label>
+
+        <label>
+            <input type="checkbox" name="interests" value="Event Management">
+            Event Management
+        </label>
+    </div>
+</div>
+<style>
+.interest-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.interest-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #181818;
+    border: 1px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.interest-options input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ffffff;
+}
+  </style>
 
         <!-- EXPERIENCE -->
         <div class="field">
